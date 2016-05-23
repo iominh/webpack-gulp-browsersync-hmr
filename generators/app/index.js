@@ -53,5 +53,11 @@ module.exports = generators.Base.extend({
         // 2. Copy in new files
         this.fs.copy(this.templatePath(wpFilename), this.destinationPath(wpFilename));
         this.fs.copy(this.templatePath(bsFilename), this.destinationPath(bsFilename));
+
+        // Rename app.js file to app.jsx
+        var jsPath = this.destinationPath('src/js/app.js');
+        if ( this.fs.exists(jsPath)) {
+            this.fs.move(jsPath, this.destinationPath('src/js/app.jsx'));
+        }
     }
 });

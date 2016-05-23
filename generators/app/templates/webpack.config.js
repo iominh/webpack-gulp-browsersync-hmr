@@ -24,10 +24,10 @@ if (environments.development()) {
 var webpackSettings = {
     debug: environments.development(),
     entry: {
-        app: ['webpack/hot/dev-server', 'webpack-hot-middleware/client', path.join(srcPath, 'app.jsx')],
+        app: [ path.join(srcPath, 'app.jsx') ],
         // Each additional bundle you require (e.g. index page js, or contact page js)
         // should be added here and referenced as a script tag in the corresponding template
-        // index: [ 'webpack/hot/dev-server', 'webpack-hot-middleware/client', path.join(srcPath, 'app.jsx')],
+        // index: [ path.join(srcPath, 'index.jsx') ],
     },
     output: {
         path: dest,
@@ -75,8 +75,23 @@ var webpackSettings = {
     }
 };
 
+/**
+Dev build settings
+*/
 if (environments.development()) {
+
+    // Set devtool
     webpackSettings.devtool = "eval";
-};
+
+    // !!! Edit this if you don't use multiple entry point Webpack files
+    for ( var key in webpackSettings.entry ) {
+        // For each entry point in your settings
+        if (!webpackSettings.entry.hasOwnProperty(key)) {
+            // ... add the webpack dev server and hotloader
+            webpackSettings.entry[key].unshift('webpack-hot-middleware/client');
+            webpackSettings.entry[key].unshift('webpack/hot/dev-server');
+        }
+    }
+}
 
 module.exports = webpackSettings;
