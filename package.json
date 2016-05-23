@@ -1,7 +1,7 @@
 {
   "name": "generator-jumpstart-react",
   "title": "Jumpstart React",
-  "description": "A Yeoman generator extending Jumpstart Static, using Webpack, Gulp and React to scaffold modern static sites",
+  "description": "A Yeoman generator for scaffolding modern React sites using Webpack, SCSS, Browser-sync, and Gulp. Built on the shoulders of Jumpstart Static",
   "version": "0.0.3",
   "author": "Max Barry",
   "license": "MIT",
