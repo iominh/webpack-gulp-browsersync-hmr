@@ -10,7 +10,7 @@ var browserSync = require('browser-sync'),
     webpackHotMiddleware = require('webpack-hot-middleware');
 
 // Load Webpack settings
-var webpackSettings = require('../webpack.config.js'),
+var webpackSettings = require('./webpack.config.js'),
     bundler = webpack(webpackSettings);
 
 gulp.task('serve', gulp.parallel(function() {

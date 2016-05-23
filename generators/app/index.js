@@ -43,7 +43,7 @@ module.exports = generators.Base.extend({
 
         this.log('Overwriting the Webpack config and BrowserSync settings');
 
-        var wpFilename = 'webpack.config.js',
+        var wpFilename = 'gulp/webpack.config.js',
             bsFilename = 'gulp/browserSync.js';
 
         // 1. Delete existing files
