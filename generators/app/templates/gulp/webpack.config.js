@@ -86,7 +86,7 @@ if (environments.development()) {
     // !!! Edit this if you don't use multiple entry point Webpack files
     for ( var key in webpackSettings.entry ) {
         // For each entry point in your settings
-        if (!webpackSettings.entry.hasOwnProperty(key)) {
+        if (webpackSettings.entry.hasOwnProperty(key)) {
             // ... add the webpack dev server and hotloader
             webpackSettings.entry[key].unshift('webpack-hot-middleware/client');
             webpackSettings.entry[key].unshift('webpack/hot/dev-server');
