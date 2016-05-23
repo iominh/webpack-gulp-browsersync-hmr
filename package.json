@@ -6,16 +6,16 @@
   "author": "Max Barry",
   "license": "MIT",
   "homepage": "https://github.com/max-barry/generator-jumpstart-react",
-  "main": "Gruntfile.js",
+  "files": [
+    "generators/app"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:max-barry/generator-jumpstart-react.git"
   },
   "readmeFilename": "Readme.md",
   "keywords": [
-    "generator",
     "scaffold",
-    "yeoman",
     "webpack",
     "gulp",
     "react",
@@ -26,10 +26,14 @@
   "dependencies": {
     "glob-all": "^3.0.1",
     "lodash": "^2.4.1",
+    "merge-json": "0.1.0-b.1",
     "mkdirp": "^0.5.1",
     "slug": "~0.8.0",
     "yeoman-generator": ">=0.18.3",
     "yo": ">=1.1.2"
+  },
+  "peerDependencies": {
+    "generator-jumpstart-static": "*"
   },
   "devDependencies": {
     "grunt": ">=0.4.2",
