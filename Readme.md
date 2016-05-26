@@ -1,6 +1,8 @@
 # Jumpstart ~ React
 A [**Yeoman**](http://yeoman.io/) generator for scaffolding modern React sites using Webpack, SCSS, Browser-sync, and Gulp. Built on the shoulders of [Jumpstart Static](https://github.com/max-barry/generator-jumpstart-static).
 
+Made by [Max](https://twitter.com/mxbrry)
+
 ## Requirements
  - [Yo](http://yeoman.io/learning/)
  - [Gulp-cli](https://github.com/gulpjs/gulp-cli)
