@@ -1,17 +1,23 @@
 var generators = require('yeoman-generator'),
     mergeJSON = require("merge-json");
 
+
+var wpFilename = 'gulp/webpack.config.js',
+    bsFilename = 'gulp/browserSync.js',
+    jsxFilename = 'src/js/app.jsx';
+
 /**
 Main setup function
 */
 module.exports = generators.Base.extend({
     initializing: function() {
-        this.composeWith('jumpstart-static', {});
-    },
-    prompting: function(){
-        // TODO : Warn the person this will delete their webpack.config.js. Offer option to backup
-    },
-    writing: function() {
+        this.composeWith('jumpstart-static', { options: {
+            exclude: [
+                wpFilename,
+                bsFilename,
+                'src/js/app.js'
+            ]
+        }});
     },
     install: function() {
 
@@ -32,32 +38,19 @@ module.exports = generators.Base.extend({
             'babel-loader',
         ], { 'saveDev': true });
 
-        // Re
+        // React module install
         this.npmInstall([
             'react',
             'react-dom',
         ], { 'save': true });
     },
-    end: function() {
+    writing: function() {
         // Update the webpack.config.js and browserSync Gulp task
+        this.log('Writing the Webpack config and BrowserSync settings');
 
-        this.log('Overwriting the Webpack config and BrowserSync settings');
-
-        var wpFilename = 'gulp/webpack.config.js',
-            bsFilename = 'gulp/browserSync.js';
-
-        // 1. Delete existing files
-        this.fs.delete(this.destinationPath(wpFilename));
-        this.fs.delete(this.destinationPath(bsFilename));
-
-        // 2. Copy in new files
         this.fs.copy(this.templatePath(wpFilename), this.destinationPath(wpFilename));
         this.fs.copy(this.templatePath(bsFilename), this.destinationPath(bsFilename));
+        this.fs.copy(this.templatePath(jsxFilename), this.destinationPath(jsxFilename));
 
-        // Rename app.js file to app.jsx
-        var jsPath = this.destinationPath('src/js/app.js');
-        if ( this.fs.exists(jsPath)) {
-            this.fs.move(jsPath, this.destinationPath('src/js/app.jsx'));
-        }
     }
 });
