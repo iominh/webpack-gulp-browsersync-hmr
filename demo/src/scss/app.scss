@@ -1,0 +1,30 @@
+/**
+Vendor
+*/
+@import "reset";
+@import "bourbon";
+@import "scut";
+@import "family";
+
+/**
+Functions
+*/
+@import "math";
+
+/**
+Settings & variables
+*/
+@import "settings";
+@import "typography";
+
+/**
+Custom resets
+*/
+html {
+    box-sizing: border-box;
+    background-color: orange;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}

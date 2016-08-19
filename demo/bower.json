@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "bourbon": "^4.0.1",
+    "Scut": "scut#^1.2.1",
+    "family.scss": "^1.0.6",
+    "reset-scss": "^2.0.2"
+  }
+}
